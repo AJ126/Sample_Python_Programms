@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+{%endblock%}
+{%block body%}
+ <div class="row">
+   <div class="col-sm-2"></div>
+   <div class="col-sm-8">
+     <h1 class="alert alert-info">Update user Information</h1>
+     <form  method="post">
+       {{form.as_p}}
+       {%csrf_token%}
+       <input type="submit" class="btn btn-success" value="Submit">
+       <a href="{%url 'add'%}" class="btn btn-info"> Back </a>
+     </form>
+   </div>
+ </div>
+{%endblock%}
