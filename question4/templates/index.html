@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+{%endblock%}
+{%block body%}
+<div class="jumbotron">
+  <div class="container">
+    {%if user.is_authenticated%}
+    <h3>'Thank You' For 'LOGIN' in Mysite.com</h3>
+    {%else%}
+    <h1>Welcome to MySite.com.....</h1>
+    {%endif%}
+    <h6>Current Date & Time is : {{date}} </h6>
+  </div>
+</div>
+{%endblock%}

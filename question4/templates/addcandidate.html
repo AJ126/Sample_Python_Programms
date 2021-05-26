@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+{%endblock%}
+{%block body%}
+<div class="jumbotron">
+  <div class="container">
+    <div class="form-group">
+         <form method="POST">
+           {{form.as_p}}
+           {% csrf_token %}
+           <input type="submit"class="btn btn-success" value="SUBMIT">
+         </form>
+    </div>
+  </div>
+</div>
+{%endblock%}

@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+<link rel="stylesheet" href="{%static 'css/student.css'%}">
+{%endblock%}
+{%block body%}
+<div class="container">
+  <div class="jumbotron">
+    <div class="form-group">
+      <form action="login" method="post">
+        {%csrf_token%}
+        <input type="username" name="username" placeholder="username"><br>
+        <input type="password" name="password" placeholder="password"><br>
+        <input type="submit" value="submit" class="btn btn-primary btn-lg btn-success">
+      </form>
+    </div>
+    <div>
+    {%for m in messages%}
+    <h3>{{m}}</h3>
+    {%endfor%}
+  </div>
+    <br>
+    <a href="{%url 'index'%}" class="btn btn-success btn-lg" align=left> BACK </a>
+  </div>
+</div>
+{%endblock%}

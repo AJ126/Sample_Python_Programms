@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="shortcuts icon" href="{%static 'Images/two.jpg'%}">
+    <meta charset="utf-8">
+    <style>
+       body
+       {
+         background-image: url({%static 'images/two.jpg'%});
+       }
+    </style>
+    {%block style%}
+    {%endblock%}
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css'%}">
+    <title>MySite.com</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="{%url 'index'%}" class="navbar-brand">MySite.com</a>
+        </div>
+        <div class="collapse navbar-collapse" id="akash">
+          <ul class="nav navbar-nav navbar-right">
+            {%if user.is_authenticated%}
+            <li><a> Hello, {{user.first_name}}</a></li>
+            <li><a href="{%url 'addcandidate'%}">Add Candidate</a></li>
+            <li><a href="{%url 'showcandidate'%}">show Candidate</a></li>
+            <li><a href="{%url 'logout'%}">Logout</a></li>
+            {%else%}
+            <li><a href="{%url 'login'%}">Add Candidate</a></li>
+            <li><a href="{%url 'login'%}">show Candidate</a></li>
+            <li><a href="{%url 'signup'%}">Sign Up</a></li>
+            <li><a href="{%url 'login'%}">Login</a></li>
+             {%endif%}
+          </ul>
+        </div>
+      </div>
+    </nav>
+      <div class="container">
+      {%block body%}
+      {%endblock%}
+    </div>
+<script src="{%static 'js/jquery.js'%}"></script>
+<script src="{%static 'js/bootstrap.js'%}"></script>
+  </body>
+  </html>

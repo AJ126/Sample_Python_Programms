@@ -1,0 +1,60 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+{%endblock%}
+{%block body%}
+<div class="jumbotron">
+  <div class="container">
+    <h4 class="text-center alert alert-warning">Candidate Information</h4>
+       {%if data%}
+       <table class="table table-hover" border=2>
+         <thead>
+           <tr>
+             <<th class="col">ID</th>
+             <th class="col">NAME</th>
+             <th class="col">EMAIL</th>
+             <th class="col">
+                <div>
+                  <table>
+                    <thead center>
+                      TEST_SCORE
+                    </thead>
+                    <tr>
+                      <td>First_Round &nbsp;&nbsp;</td> <td>Second_Round &nbsp;&nbsp;</td><td>Third_Round</td>
+                    </tr>
+                  </table>
+                </div>
+             </th>
+             <th class="col">ADDRESS ACTION</th>
+           </tr>
+         </thead>
+         {%for d in data%}
+         <tbody>
+           <tr>
+             <td scope='row'>{{d.id}}</td>
+             <td>{{d.name}}</td>
+             <td>{{d.email}}</td>
+             <td>
+               <table>
+                 <tr>
+                   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{d.first_round}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                   <td>{{d.second_round}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                   <td>{{d.third_round}}</td>
+                 </tr>
+               </table>
+             </td>
+             <td>{{d.address}} <form method="post" class="form-inline">
+               <a href="{%url 'update' d.id %}" class="btn btn-success btn-sm">update</a>
+               {%csrf_token%}
+             </form>
+           </td>
+           </tr>
+         </tbody>
+         {%endfor%}
+       </table>
+       {%else%}
+       <h1 class="alert alert-danger">No Records</h1>
+       {%endif%}
+  </div>
+</div>
+{%endblock%}
