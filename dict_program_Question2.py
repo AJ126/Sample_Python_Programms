@@ -2,6 +2,7 @@ import random
 examScoreDict={}
 maxScoreStudentDict={}
 roll_no=100
+
 while(roll_no>0):
       examScore = random.randint(1,roll_no)
       examScoreDict[roll_no]=examScore

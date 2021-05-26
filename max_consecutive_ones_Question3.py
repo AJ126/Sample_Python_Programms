@@ -1,5 +1,6 @@
 list=[0,0,0,1,1,1,0,0,0,1,1,0,1,1,1,1,0,0,1,1]
 n=len(list)
+
 def myfun(list,n):
     count=0
     result=0
